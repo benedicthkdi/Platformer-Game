@@ -17,25 +17,32 @@
                 {
                     "name": "Jump",
                     "type": "Button",
-                    "id": "a496f908-943a-4052-bdcc-56a23b39e2a2",
+                    "id": "a18a7a48-4b5f-4e72-b11f-794c58c0450e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "PassThrough",
+                    "id": "df50261c-d8e7-4304-8f3e-070e1d4e4416",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "8ce6f8ff-45a1-4fd7-b8bd-9994b051a30d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "493226e4-6997-495a-901a-914d15e73c25",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "3fdb7d6c-04eb-43a4-b71b-e43a01175988",
@@ -93,12 +100,34 @@
                 },
                 {
                     "name": "",
-                    "id": "dfa557eb-3477-40d2-9a2c-3b63c6ea5ce4",
-                    "path": "",
+                    "id": "ef87e709-f3c4-4aa8-b44c-1d9f2e522e5e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf6f0fa2-b032-44a9-b351-6718b525608f",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b8b0a89-0380-4feb-8786-c6823eac3c46",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "InvertVector2,ScaleVector2(x=0.05,y=0.05)",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
