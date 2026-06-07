@@ -46,7 +46,7 @@
                 {
                     "name": "",
                     "id": "493226e4-6997-495a-901a-914d15e73c25",
-                    "path": "",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -122,6 +122,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6be73e72-59a3-4d9c-967f-3639fd044589",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d9fec5e0-6346-49f0-b3fb-eb308999bb6f",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -133,14 +144,58 @@
                 },
                 {
                     "name": "",
-                    "id": "427e2d27-f1d6-4855-9798-a9ecfe9303d4",
-                    "path": "<Pointer>/delta",
+                    "id": "e8f347a8-a734-4ca2-909f-f4d8df1095d5",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b5f07de-a51c-4478-a48b-7e79782897da",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "c7bf506f-104f-4f0d-ac4f-db5f144fcccb",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "e0f4a59b-85d2-4edd-9380-98a64dbf427e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "5d2d9bad-272c-476d-a71d-4dd9480bcdf4",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
