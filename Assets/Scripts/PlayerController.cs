@@ -26,11 +26,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     private float verticalVelocity;
 
+    private AnimationController animationController;
 
-    // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
@@ -63,11 +64,13 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded)
         {
             verticalVelocity = jumpForce;
+            animationController.TriggerJumpAnimation();
         }
         else if(canDoubleJump == true && toogleDoubleJump == true)
         {
             verticalVelocity = jumpForce;
             canDoubleJump = false;
+            animationController.TriggerJumpAnimation();
         }
     }
 
@@ -99,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {   
         float currentSpeed;
 
-        if (isRunning && characterController.isGrounded)
+        if (isRunning)
         {
             currentSpeed = runSpeed;
         }

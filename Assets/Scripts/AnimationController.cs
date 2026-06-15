@@ -19,7 +19,23 @@ public class AnimationController : MonoBehaviour
         Vector3 horizontalVelocity = characterController.velocity;
         horizontalVelocity.y = 0;
         float speed = horizontalVelocity.magnitude;
-        
         animator.SetFloat("speed", speed, 0.1f, Time.deltaTime);
+
+        animator.SetBool("Grounded", characterController.isGrounded);
+
+        if (characterController.isGrounded)
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("FreeFall", false);
+        }
+        else if (characterController.velocity.y < -0.1f)
+        {
+            animator.SetBool("FreeFall", true);
+        }
+    }
+
+    public void TriggerJumpAnimation()
+    {
+        animator.SetBool("Jump", true);
     }
 }
