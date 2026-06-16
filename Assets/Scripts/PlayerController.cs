@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded)
         {
             verticalVelocity = jumpForce;
+            characterController.Move(Vector3.up * 0.02f);
             animationController.TriggerJumpAnimation();
         }
         else if(canDoubleJump == true && toogleDoubleJump == true)
