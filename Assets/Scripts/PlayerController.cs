@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {   
         float currentSpeed;
 
-        if (isRunning && characterController.isGrounded)
+        if (isRunning)
         {
             currentSpeed = runSpeed;
         }
