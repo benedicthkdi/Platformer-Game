@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationController : MonoBehaviour
@@ -32,4 +30,11 @@ public class AnimationController : MonoBehaviour
     {
         animator.SetBool("Jump", true);
     }
+
+    public void TriggerDeathAnimation()
+    {
+        animator.SetTrigger("Die");
+    }
 }
+
+

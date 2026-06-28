@@ -100,8 +100,6 @@ public class PlayerController : MonoBehaviour
         }
     }
         
-
-
     public void ApplyMovement()
     {   
         float currentSpeed;
@@ -118,5 +116,26 @@ public class PlayerController : MonoBehaviour
         Vector3 finalVelocity = moveDirection * currentSpeed;
         finalVelocity.y = verticalVelocity;
         characterController.Move(finalVelocity * Time.deltaTime);
+    }
+
+    [Header("Death")]
+    public float deathAnimationDuration = 1f;
+    private bool isDead = false;
+
+    public void StartDie()
+    {
+        if(isDead) return;
+
+        isDead = true;
+        GetComponent<PlayerInput>().enabled = false;
+        animationController.TriggerDeathAnimation();
+        StartCoroutine(Die());
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(deathAnimationDuration);
+        RespawnManager.Instance.StartRespawn();
+        Destroy(gameObject);
     }
 }
