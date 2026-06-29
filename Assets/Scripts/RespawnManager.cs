@@ -24,6 +24,8 @@ public class RespawnManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        BlackScreenFader.Instance.StartFadeAnim();
+
         yield return new WaitForSeconds(respawnDelay);
 
         GameObject playerClone = Instantiate(newPlayer, spawnPoint.position, Quaternion.identity);

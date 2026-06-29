@@ -163,6 +163,7 @@ MonoBehaviour:
   jumpForce: 15
   toogleDoubleJump: 1
   gravityMultiplier: 5
+  deathAnimationDuration: 2
 --- !u!114 &6451288824121994659
 MonoBehaviour:
   m_ObjectHideFlags: 0
