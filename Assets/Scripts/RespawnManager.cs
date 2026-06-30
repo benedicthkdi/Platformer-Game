@@ -32,6 +32,10 @@ public class RespawnManager : MonoBehaviour
 
         freelookCamera.Follow = playerClone.transform;
         freelookCamera.LookAt = playerClone.transform;
+
+        freelookCamera.PreviousStateIsValid = false;
+        freelookCamera.m_XAxis.Value = 0;
+        freelookCamera.m_YAxis.Value = 0.5f;
     }
 }
 
