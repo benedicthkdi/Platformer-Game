@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [Header("Movement")]
     public float speed = 1;
     public float runSpeed = 10f;
@@ -118,5 +120,20 @@ public class PlayerController : MonoBehaviour
         Vector3 finalVelocity = moveDirection * currentSpeed;
         finalVelocity.y = verticalVelocity;
         characterController.Move(finalVelocity * Time.deltaTime);
+    }
+
+    public void StartDie()
+    {
+        animationController.TriggerDeathAnimation();
+        GetComponent<PlayerInput>().enabled = false;
+        StartCoroutine(Die());
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(2);
+
+        RespawnManager.Instance.StartRespawn();
+        Destroy(gameObject);
     }
 }
