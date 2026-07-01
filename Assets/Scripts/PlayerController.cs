@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        RespawnManager.Instance.StartRespawn();
+        GameManager.Instance.LoseLife();
         Destroy(gameObject);
     }
 }

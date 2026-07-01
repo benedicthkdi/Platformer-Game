@@ -1,6 +1,3 @@
-using System.Collections;
-using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class KillZone : MonoBehaviour
@@ -10,7 +7,7 @@ public class KillZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
-            RespawnManager.Instance.StartRespawn();
+            GameManager.Instance.LoseLife();
         }
     }
 }
