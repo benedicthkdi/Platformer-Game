@@ -10,7 +10,7 @@ public class KillZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
-            RespawnManager.Instance.StartRespawn();
+            GameManager.Instance.LoseLife();
         }
     }
 }
