@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class GameManager : MonoBehaviour
     private int lives = 3;
 
     public GameObject gameOverScreen;
+    public GameObject gameWinScreen;
 
     void Start()
     {
@@ -30,6 +30,14 @@ public class GameManager : MonoBehaviour
         {
             RespawnManager.Instance.StartRespawn();
         }
+    }
+
+    public void WinGame()
+    {
+        PlayerInput playerInput = FindObjectOfType<PlayerInput>();
+        playerInput.enabled = false;
+
+        gameWinScreen.SetActive(true);
     }
 
     public void RestartGame()
