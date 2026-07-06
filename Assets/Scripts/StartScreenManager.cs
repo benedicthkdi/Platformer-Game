@@ -12,24 +12,30 @@ public class StartScreenManager : MonoBehaviour
     public Canvas gameStateCanvas;
     public Canvas mobileControlsCanvas;
     public PlayerInput playerInput;
-
     private bool gameStarted = false;
+
+    public static bool skipCinematic = false;
 
     void Start()
     {
         playerInput.enabled = false;
+
+        if (skipCinematic)
+        {
+            SkipToGameplay();
+        }
     }
 
     void Update()
     {
-        if(gameStarted) return;
+        if(gameStarted || skipCinematic) return;
 
         bool keyboardPressed = Keyboard.current != null 
-                            && Keyboard.current.anyKey.wasPressedThisFrame;
+                            && Keyboard.current.anyKey.isPressed;
         bool touchScreenTapped = Touchscreen.current != null 
-                            && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
+                            && Touchscreen.current.primaryTouch.press.isPressed;
         bool mouseClicked = Mouse.current != null
-                            && Mouse.current.leftButton.wasPressedThisFrame;
+                            && Mouse.current.leftButton.isPressed;
 
         if(keyboardPressed || touchScreenTapped || mouseClicked)
         {
@@ -44,6 +50,18 @@ public class StartScreenManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         
+        timeline.Stop();
+        cinematicCameras.SetActive(false);
+        startScreenCanvas.enabled = false;
+
+        playerCamera.SetActive(true);
+        gameStateCanvas.enabled = true;
+        mobileControlsCanvas.enabled = true;
+        playerInput.enabled = true;
+    }
+
+    private void SkipToGameplay()
+    {
         timeline.Stop();
         cinematicCameras.SetActive(false);
         startScreenCanvas.enabled = false;

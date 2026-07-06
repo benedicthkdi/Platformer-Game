@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        StartScreenManager.skipCinematic = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
