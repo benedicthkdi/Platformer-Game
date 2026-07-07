@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverScreen;
 
+    public GameObject gameWinScreen;
+
     void Start()
     {
       Instance = this;  
@@ -30,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             RespawnManager.Instance.StartRespawn();
         }
+    }
+
+    public void WinGame()
+    {
+        gameWinScreen.SetActive(true);
     }
 
     public void RestartGame()
