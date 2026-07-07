@@ -7,6 +7,7 @@ public class RespawnManager : MonoBehaviour
     public static RespawnManager Instance;
 
     public Transform spawnPoint;
+    public Transform currentSpawnPoint;
     public float respawnDelay = 1;
     public GameObject newPlayer;
     public CinemachineVirtualCamera virtualCamera;
@@ -16,12 +17,18 @@ public class RespawnManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        currentSpawnPoint = spawnPoint;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetSpawnPoint(Transform newSpawnPoint)
+    {
+        currentSpawnPoint = newSpawnPoint;
     }
 
     public void StartRespawn()
@@ -35,7 +42,7 @@ public class RespawnManager : MonoBehaviour
 
         yield return new WaitForSeconds(respawnDelay);
 
-        GameObject playerClone = Instantiate(newPlayer, spawnPoint.position, Quaternion.identity);
+        GameObject playerClone = Instantiate(newPlayer, currentSpawnPoint.position, Quaternion.identity);
 
         freelookCamera.Follow = playerClone.transform;
         freelookCamera.LookAt = playerClone.transform;
